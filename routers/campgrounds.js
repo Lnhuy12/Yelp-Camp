@@ -22,6 +22,8 @@ router
 
 router.get("/new", isLoggedIn, campground.renderNewForm);
 
+router.route("/search").post(catchAsync(campground.searchCamp));
+
 router
   .route("/:id")
   .get(catchAsync(campground.showCamp))

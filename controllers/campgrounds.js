@@ -3,6 +3,7 @@ const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapboxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapboxToken });
 const { cloudinary } = require("../cloudinary/index");
+const campground = require("../models/campground");
 
 module.exports.index = async (req, res) => {
   const camp = await Campground.find({});
@@ -86,4 +87,14 @@ module.exports.deleteCamp = async (req, res) => {
   await Campground.findByIdAndDelete(id);
   req.flash("success", "Deleted the campground");
   res.redirect("/campgrounds");
+};
+
+module.exports.searchCamp = async (req, res) => {
+  const { search } = req.body;
+  const camp = await Campground.findOne({ title: search });
+  if (!camp) {
+    req.flash("error", "Couldn't find the campground");
+    return res.redirect("/campgrounds");
+  }
+  res.redirect(`/campgrounds/${camp._id}`);
 };

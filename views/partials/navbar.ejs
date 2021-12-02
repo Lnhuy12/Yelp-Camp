@@ -14,7 +14,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" href="/">Home</a>
+        <form class="d-flex" action="/campgrounds/search" method="post">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/campgrounds">Campgrounds</a>
         <a class="nav-link" href="/campgrounds/new">New Campground</a>
       </div>
