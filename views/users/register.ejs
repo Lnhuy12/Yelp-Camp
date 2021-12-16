@@ -45,12 +45,12 @@
                 type="password"
                 id="password"
                 name="password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,}$/g"
                 required
               />
               <div class="invalid-feedback">
-                Must contain at least one number and one uppercase and lowercase
-                letter, and at least 8 or more characters
+                Must contain at least 1 Uppercase, 1 Lowercase, 1 Number, 1
+                Symbol, Min 8 chars
               </div>
             </div>
             <div class="d-grid gap-2">
