@@ -37,7 +37,6 @@
                 name="email"
                 required
               />
-              <div class="valid-feedback">Looks good!</div>
             </div>
             <div class="mb-3">
               <label class="form-label" for="password">Password</label>
@@ -46,9 +45,13 @@
                 type="password"
                 id="password"
                 name="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 required
               />
-              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">
+                Must contain at least one number and one uppercase and lowercase
+                letter, and at least 8 or more characters
+              </div>
             </div>
             <div class="d-grid gap-2">
               <button class="btn btn-success">Register</button>
